@@ -6,9 +6,11 @@ struct Item {                          // create struct
 struct List {
     var title: String
     var items: [Item] = []
+    
     mutating func createItem(item: Item){  //create item for a list
         self.items.append(item)
     }
+    
     mutating func updateItem(index: Int,name:String){    // change one element
         if index > (self.items.count - 1) {print("error") }
         else{
@@ -42,16 +44,26 @@ class ToDoList {                     // create class
             }
         }
     }
+    
+    func createList(list: List){  //create item for a list
+        self.lists.append(list)
+    }
+    
+    
+    
 }
 
 var myLists = ToDoList()
 myLists.lists.append(List(title: "Work" , items: [Item(title: "Fix project", status: true, id: 0)]))
 myLists.lists.append(List(title: "Personal", items: [Item(title: "Buy water", status: false, id: 1)]))
 
-
+myLists.lists[0].deleteItem(index: 0)
+myLists.lists[1].updateItem(index: 0, name: "Buy pepsi")
+var item1 = Item(title: "Finsh project", status: true, id: 3)
+var list61 = List(title: "My new List", items: [item1])
+myLists.createList(list: list61)
 
 myLists.readItemsAllLists()
-
 
 
 
