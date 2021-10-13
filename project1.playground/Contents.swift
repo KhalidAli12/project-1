@@ -23,7 +23,7 @@ struct List {
             self.items.remove(at: index)}
     }
     
-    mutating func readItems(){  // show or print the item
+    mutating func readListItems(){  // show or print the item
         for item in self.items{
             print("Task: \(item.title), Status: \(item.status), id: \(item.id)")
             
@@ -33,28 +33,24 @@ struct List {
 }
 class ToDoList {                     // create class
     var lists: [List] = []
-    
+    func readItemsAllLists(){
+        
+        for list in self.lists {
+            print("List Title: \(list.title)")
+            for item in list.items {
+                print("# \(item.id) Task: \(item.title), status: \(item.status), id \(item.id)")
+            }
+        }
+    }
 }
 
 var myLists = ToDoList()
 myLists.lists.append(List(title: "Work" , items: [Item(title: "Fix project", status: true, id: 0)]))
 myLists.lists.append(List(title: "Personal", items: [Item(title: "Buy water", status: false, id: 1)]))
 
-myLists.lists[0].readItems()
-myLists.lists[1].readItems()
-//myLists.lists.remove(at: 0)
-//myLists.lists
-//myLists.lists[1].readItems()
 
-myLists.lists[0].updateItem(index: 0, name: "project completed")
-myLists.lists[0].readItems()
-myLists.lists[0].deleteItem(index: 0)
-myLists.lists[0].readItems()
-myLists.lists[1].readItems()
-//myLists.lists[1].updateItem(index: 0, name: "by pepsi")
 
-//myLists.lists[1].readItems()
-
+myLists.readItemsAllLists()
 
 
 
@@ -82,3 +78,18 @@ myLists.lists[1].readItems()
 //
 //list.deleteItem(index: 1)
 //list.readItems()
+
+//myLists.lists[0].readListItems()
+//myLists.lists[1].readListItems()
+//myLists.lists.remove(at: 0)
+//myLists.lists
+//myLists.lists[1].readItems()
+
+//myLists.lists[0].updateItem(index: 0, name: "project completed")
+//myLists.lists[0].readListItems()
+//myLists.lists[0].deleteItem(index: 0)
+//myLists.lists[0].readListItems()
+//myLists.lists[1].readListItems()
+//myLists.lists[1].updateItem(index: 0, name: "by pepsi")
+
+//myLists.lists[1].readItems()
