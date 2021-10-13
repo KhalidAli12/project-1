@@ -36,7 +36,7 @@ class ToDoList {                     // create class
     var lists: [List] = []            //collection of lists
     func readItemsAllLists(){
         
-        for list in self.lists {         
+        for list in self.lists {
             print("List Title: \(list.title)")
             for item in list.items {
                 print("# \(item.id) Task: \(item.title), status: \(item.status), id \(item.id)")
@@ -55,8 +55,6 @@ var myLists = ToDoList()
 myLists.lists.append(List(title: "Work" , items: [Item(title: "swift programing", status: true, id: 0)]))
 myLists.lists.append(List(title: "Personal", items: [Item(title: "Buy water", status: false, id: 1)]))
 
-//myLists.lists[0].deleteItem(index: 0)
-myLists.lists[1].updateItem(index: 0, name: "Buy pepsi")
 var item1 = Item(title: "Creat Project", status: true, id: 2)
 var item2 = Item(title: "Edite Project", status: true, id: 3)
 var item3 = Item(title: "Finsh Project", status: true, id: 4)
@@ -64,10 +62,9 @@ var item3 = Item(title: "Finsh Project", status: true, id: 4)
 var list1 = List(title: "My new List", items: [item1,item2,item3])
 myLists.createList(list: list1)
 
-
+myLists.lists[0].readListItems()
 myLists.lists[0].updateItem(index: 0, name: "JavaScript Programing")
 myLists.readItemsAllLists()
 myLists.lists[0].deleteItem(index: 0)
 
 myLists.readItemsAllLists()
-
